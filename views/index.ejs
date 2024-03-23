@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ONLINE IDE</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        main {
+            background: url(https://img.freepik.com/free-photo/abstract-digital-grid-black-background_53876-97647.jpg?size=626&ext=jpg&ga=GA1.1.735520172.1711065600&semt=ais);
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            width: 100%;
+            max-width: auto;
+        }
+
+        h1 {
+            color: #fff;
+            grid-column: 1 / -1;
+            text-align: center;
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            /* Two columns */
+            gap: 10px;
+            width: 100%;
+        }
+
+        h3 {
+            color: #fff;
+            text-align: left;
+        }
+        h6 {
+            color: #fff;
+            text-align: left;
+        }
+
+        label {
+            color: #fff;
+            text-align: left;
+        }
+
+        .radio-container {
+            display: flex;
+            gap: 10px;
+        }
+
+        .radio-item {
+            display: flex;
+            align-items: center;
+        }
+
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+
+
+        textarea,
+        input[type="submit"],
+        textarea#output {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid  #D3D3D3;
+            border-radius: 6px;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #555;
+            border-radius: 10px;
+        }
+
+        input[type="submit"] {
+            background-color: #5dee6c;
+            color: #555;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #5dee6c;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1>ONLINE IDE</h1>
+        <form id="myform" name="myform" method="post" action="compilecode">
+            <div>
+                <h3>CODE</h3>
+                <textarea rows="10" id="code" name="code" placeholder="Enter your code here..."><%= code %></textarea>
+            </div>
+            <div>
+                <h3 for="input">INPUT</h3>
+                <textarea rows="5" id="input" name="input" placeholder="Enter input (if any)..."><%= input %></textarea>
+
+                <label for="lang">Language:</label>
+                <select name="lang" id="lang">
+                    <option value="C/C+">C/C+</option>
+                    <option value="Java">Java</option>
+                    <option value="Python">Python</option>
+                </select>
+        </div>
+        
+        <div class="radio-container">
+            <div class="radio-item">
+            <label for="inputRadio">Compile With Input:</label>
+              <input type="radio" id="inputRadioTrue" name="inputRadio">
+              <label for="inputRadioTrue">Yes</label>
+              <input type="radio" id="inputRadioFalse" name="inputRadio">
+              <label for="inputRadioFalse">No</label>
+            </div>
+        </div>
+        <input type="submit" value="Compile & Run" name="submit" />
+    </form>
+        <div>
+            <h3>Output</h3>
+            <textarea rows="15" id="output" name="output" readonly><%= output %></textarea>
+        </div>
+    </main>
+</body>
+</html>
